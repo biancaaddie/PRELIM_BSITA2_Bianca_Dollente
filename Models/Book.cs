@@ -28,6 +28,10 @@
         Fantasy,
         Romance,
         Thriller,
+        Historical,
+        Classic,
+        Drama,
+        Adventure,
         Other
     }
 }
