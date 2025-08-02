@@ -1,0 +1,30 @@
+﻿@model List<Library_Management_System.Models.Book>
+<h2>Books in Library</h2>
+
+<table class= "table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>ISBN</th>
+            <th>Genre</th>
+            <th>Publication Year</th>
+            <th>Status</th>
+            <th>Date Returned</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Author.Name</td>
+                <td>@book.ISBN</td>
+                <td>@book.Genre</td>
+                <td>@book.PublicationYear</td>
+                <td>@(book.IsAvailable ? "Available" : "Borrowed")</td>
+                <td>(@book.DateLastReturned.ToShortDateString())</td>
+            </tr>
+        }
+    </tbody>
+</table>

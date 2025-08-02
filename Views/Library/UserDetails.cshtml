@@ -1,0 +1,40 @@
+﻿@model Library_Management_System.Models.User
+
+<h2>User Details</h2>
+
+<p><strong>Name:</strong> @Model.FullName</p>
+<p><strong>Email:</strong> @Model.Email</p>
+<p><strong>Registered on:</strong> @Model.Date_Registered.ToShortDateString()</p>
+
+<h3>Borrowed Books</h3>
+
+@if (Model.BorrowedBooks.Any())
+{
+    <table class=" table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Genre</th>
+                <th>Publication Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model.BorrowedBooks)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Author.Name</td>
+                    <td>@book.ISBN</td>
+                    <td>@book.Genre</td>
+                    <td>@book.PublicationYear</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No books currently borrowed.</p>
+}
